@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- link jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="get-started">
+        <h1>Press any key to start playing Hangman!</h1>
+    </div>
+    <img src="insert picture here" alt="some cool hangman picture">
+    <div>
+        <p id="blank-letters">
+
+        </p>
+    </div>
+    <div>
+        <p id="wrong-letters">
+
+        </p>
+    </div>
+
+    <div id="score">
+
+    </div>
+
+
+    <script type="text/javascript">
+
+        // define global variables for keeping score, and creating new arrays of letters to be displayed to the DOM
+
+        let wins = 0;
+        let losses = 0;
+        let wordBank = ["Bulbasaur", "Charmander", "Pidgey", "Caterpie", "Ekans", "Psyduck", "Tentacool", "	Rapidash"];
+        let wrongLetters = [];
+        let blankWord = [];
+
+
+        // generate a word from the wordBank, send each letter to the blankWord array, 
+        // and display to the blank - letters ID on the DOM
+
+        let targetWord = wordBank[Math.floor(Math.random() * wordBank.length)];
+        let correctLetters = targetWord.split("");
+        console.log(correctLetters);
+        
+
+        
+        
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
