@@ -42,16 +42,58 @@
         let blankWord = [];
 
 
-        // generate a word from the wordBank, send each letter to the blankWord array, 
-        // and display to the blank - letters ID on the DOM
+        // generate a word from the wordBank, and save as taregtWord
+        // split the target word into letters and save them as correctLetters array 
 
         let targetWord = wordBank[Math.floor(Math.random() * wordBank.length)];
         let correctLetters = targetWord.split("");
         console.log(correctLetters);
-        
 
-        
-        
+        // create a for loop to go though the correctLetters array and send a _ to the blankWord array for each letter
+
+        for (let i = 0; i < targetWord.length; i++) {
+            blankWord.push("_");
+
+        }
+        console.log(blankWord);
+
+        // display blank word to the DOM
+        $("#blank-letters").text(blankWord.join(" "))
+
+
+        // display wrong letters to the DOM 
+        $("#wrong-letters").text(wrongLetters);
+
+
+        // create a key event listener, save the key value to a variable called userGuess
+
+
+        document.onkeyup = function (event) {
+            userGuess = event.key;
+            console.log(userGuess);
+
+            // create a loop to check if the userGuess is equal to any of the letters in the targetWord Array
+
+            for (let i = 0; i < correctLetters.length; i++) {
+                if (userGuess === correctLetters[i]) {
+                    blankWord[i] = userGuess;
+                    $("#blank-letters").text(blankWord.join(" "))
+
+                }
+
+            }
+            console.log(blankWord);
+
+            if (!correctLetters.includes(userGuess)) {
+                wrongLetters.push(userGuess);
+
+            }
+
+        }
+
+
+
+
 
 
 
