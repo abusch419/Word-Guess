@@ -66,7 +66,7 @@
             $("#wrong-letters").text(wrongLetters.join(" "));
         }
 
-   
+
         // randomly generates a target word from wordBank array and puts letters into correctLetters array
         function generateTargetWord() {
             targetWord = wordBank[Math.floor(Math.random() * wordBank.length)];
@@ -79,6 +79,7 @@
 
         // create a for loop to go though the correctLetters array and send a _ to the blankWord array for each letter
         function generateBlankWord() {
+            blankWord = [];
             for (let i = 0; i < targetWord.length; i++) {
                 blankWord.push("_");
             }
@@ -132,24 +133,28 @@
 
                 // reset game at 15 wrong guesses and icrement loss
 
+                // reset wrongGuess
+                // reset wrongLetters
+                // reset wrongCharacter
+                // regen targetWord
+                // regen blankWord
+                // display blank word
+
                 if (wrongGuess === 15) {
+                    $("#wrong-letters, #blank-letters").empty();
                     setGuesses(0);
-                    displayBlankWord();
                     displayWrongLetters();
                     setWrongLetter();
-                    $("#wrong-letters, #blank-letters").empty();
-
+                    generateTargetWord();
+                    generateBlankWord();
+                    displayBlankWord();
                 }
 
+                // display wrong letters guessed to the dom
+                wrongLetters.push(wrongCharacter);
+                displayWrongLetters();
 
             }
-
-            // display wrong letters guessed to the dom
-
-            wrongLetters.push(wrongCharacter);
-            displayWrongLetters();
-
-
 
         }
 
