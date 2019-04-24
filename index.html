@@ -44,7 +44,7 @@
 
         let wins = 0;
         let losses = 0;
-        let wordBank = ["bulbasaur", "charmander", "pidgey", "caterpie", "ekans", "psyduck", "tentacool", "	rapidash"];
+        let wordBank = ["bulbasaur", "charmander", "pidgey", "caterpie", "ekans", "psyduck", "tentacool", "rapidash"];
         let wrongLetters = [];
         let blankWord = [];
         let targetWord;
@@ -107,7 +107,7 @@
 
 
         document.onkeyup = function (event) {
-            userGuess = event.key.toLocaleLowerCase();
+            userGuess = event.key.toLowerCase();
 
             console.log(userGuess);
 
@@ -131,6 +131,9 @@
                 $("#wrong-guesses").text(wrongGuess);
                 console.log(wrongGuess);
 
+
+
+              
                 // reset game at 15 wrong guesses and icrement loss
 
                 // reset wrongGuess
@@ -139,6 +142,7 @@
                 // regen targetWord
                 // regen blankWord
                 // display blank word
+
 
                 if (wrongGuess === 15) {
                     $("#wrong-letters, #blank-letters").empty();
@@ -154,9 +158,28 @@
                 wrongLetters.push(wrongCharacter);
                 displayWrongLetters();
 
+
+
+
+
             }
 
+            if (blankWord.join(" ") === correctLetters.join(" ")) {
+                $("#wrong-letters, #blank-letters").empty();
+                    setGuesses(0);
+                    displayWrongLetters();
+                    setWrongLetter();
+                    generateTargetWord();
+                    generateBlankWord();
+                    displayBlankWord();
+                    console.log("you win");
+
+            }
+            
+
+
         }
+
 
 
 
